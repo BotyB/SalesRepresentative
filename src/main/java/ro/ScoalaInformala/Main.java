@@ -1,17 +1,28 @@
 package ro.ScoalaInformala;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        SalesRepresentative[] representatives = {   //Examples
+                new SalesRepresentative("Boty", 20, 1000),
+                new SalesRepresentative("Mihai", 8, 650),
+                new SalesRepresentative("Ion", 16, 850),
+                new SalesRepresentative("Andrei", 14, 500),
+                new SalesRepresentative("Vasile", 12, 380)
+        };
+        System.out.println("Before sorting: ");
+        printRepresentatives(representatives);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        BubbleSorter sorter = new BubbleSorter(); //Sort the representatives
+        SalesRepresentative[] sortedRepresentatives = sorter.sort(representatives);
+
+        System.out.println("\nAfter Sorting: ");
+        printRepresentatives(sortedRepresentatives);
+    }
+
+    private static void printRepresentatives(SalesRepresentative[] representatives) {
+        for (SalesRepresentative rep : representatives) {
+            System.out.println(rep);
         }
     }
 }
